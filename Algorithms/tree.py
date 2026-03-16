@@ -1,4 +1,10 @@
-﻿from node import Node
+﻿class Node:
+    def __init__(self, pergunta = None, resposta = None):
+        self.pergunta = pergunta
+        self.resposta = resposta
+
+        self.yes = None
+        self.no = None
 
 class ArvoreDecisao:
 
@@ -28,5 +34,4 @@ class ArvoreDecisao:
         raiz.no.no.no = Node(resposta = 'É uma cobra?')
 
         return raiz
-    
 
