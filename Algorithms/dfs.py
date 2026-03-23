@@ -1,16 +1,16 @@
-class Node:
-    def __init__(self, question=None, answer=None):
-        self.question = question  # Nó interno
-        self.answer = answer      # Nó folha (animal)
-        self.yes = None           # Lado Esquerdo
-        self.no = None            # Lado Direito
+from node import Node
 
-def run_dfs(node):
-  if node is None:
-      return
-    
-  valor = node.question if node.question else f"RESPOSTA: {node.answer}"
-  print(f"[DFS Visita]: {valor}")
-    
-  run_dfs(node.yes)
-  run_dfs(node.no)
+def dfs(node, visitados=None):
+    if visitados is None:
+        visitados = []
+
+    if node is None:
+        return visitados
+
+    valor = node.pergunta if node.pergunta else node.resposta
+    visitados.append(valor)
+
+    dfs(node.yes, visitados)
+    dfs(node.no, visitados)
+
+    return visitados
