@@ -12,19 +12,18 @@ class ArvoreDecisao:
 
         #caso a raiz seja sim
 
-        raiz.yes.yes = Node(pergunta = 'É um Golfinho!')
-        raiz.yes.no = Node(pergunta = 'É um Tubarão!')
+        raiz.yes.yes = Node(pergunta = 'Golfinho')
+        raiz.yes.no = Node(pergunta = 'Tubarão')
 
         #caso a raiz seja não
 
         raiz.no.yes = Node(pergunta = 'É uma animal aéreo? ')
         raiz.no.no = Node(pergunta = 'Tem quatro patas? ')
 
-        raiz.no.yes.yes = Node(resposta = 'É uma Águia?')
-        raiz.no.yes.no = Node(resposta = 'É um Pinguim?')
+        raiz.no.yes.yes = Node(resposta = 'Águia')
+        raiz.no.yes.no = Node(resposta = 'Pinguim')
 
-        raiz.no.no.yes = Node(resposta = 'É um cachorro?')
-        raiz.no.no.no = Node(resposta = 'É uma cobra?')
+        raiz.no.no.yes = Node(resposta = 'Cachorro')
+        raiz.no.no.no = Node(resposta = 'Cobra')
 
         return raiz
-
