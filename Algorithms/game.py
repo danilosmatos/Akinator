@@ -1,6 +1,6 @@
-from tree import ArvoreDecisao
-from bfs import bfs
-from dfs import dfs
+from Algorithms.tree import ArvoreDecisao
+from Algorithms.bfs import bfs
+from Algorithms.dfs import dfs
 
 
 class Akinator:
@@ -18,15 +18,11 @@ class Akinator:
             else:
                 print("Responda apenas com 's' ou 'n'.")
 
-    # -------------------------
-    # JOGO PRINCIPAL
-    # -------------------------
     def jogar(self):
         no = self.raiz
         caminho = []
 
         while True:
-            # Se for folha → resposta final
             if no.resposta:
                 print(f"\nVocê pensou em: {no.resposta}?")
 
@@ -37,7 +33,6 @@ class Akinator:
                     print("Acertei.")
                 return
 
-            # Se for pergunta
             resposta = self.perguntar(no.pergunta)
             caminho.append((no, resposta))
 
@@ -46,9 +41,6 @@ class Akinator:
             else:
                 no = no.no
 
-    # -------------------------
-    # APRENDIZADO
-    # -------------------------
     def aprender(self, no_errado, caminho):
         print("\nNão sei então. Me ensine.")
 
@@ -65,7 +57,6 @@ class Akinator:
         nova_pergunta.yes = no_errado.__class__(resposta=novo)
         nova_pergunta.no = no_errado.__class__(resposta=no_errado.resposta)
 
-        # ligar ao pai
         if caminho:
             pai, resp = caminho[-1]
             if resp:
@@ -73,14 +64,10 @@ class Akinator:
             else:
                 pai.no = nova_pergunta
         else:
-            # caso raiz
             self.raiz = nova_pergunta
 
         print("Aprendi algo novo.")
 
-    # -------------------------
-    # VISUALIZAÇÕES (REQUISITO)
-    # -------------------------
     def mostrar_bfs(self):
         print("\n--- BFS (ordem de visita) ---")
         ordem = bfs(self.raiz)

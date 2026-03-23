@@ -1,4 +1,4 @@
-from node import Node
+from Algorithms.node import Node
 
 def dfs(node, visitados=None):
     if visitados is None:

@@ -1,4 +1,4 @@
-﻿from node import Node
+﻿from Algorithms.node import Node
 class ArvoreDecisao:
 
     def __init__(self):
@@ -12,8 +12,8 @@ class ArvoreDecisao:
 
         #caso a raiz seja sim
 
-        raiz.yes.yes = Node(pergunta = 'É um Golfinho?')
-        raiz.yes.no = Node(pergunta = 'É um Tubarão?')
+        raiz.yes.yes = Node(pergunta = 'É um Golfinho!')
+        raiz.yes.no = Node(pergunta = 'É um Tubarão!')
 
         #caso a raiz seja não
 
