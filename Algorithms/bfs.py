@@ -15,7 +15,7 @@ def bfs(raiz):
 
         if no.yes:
             queue.append(no.yes)
-        elif no.no:
+        if no.no:
             queue.append(no.no)
     return visitados
 
