@@ -12,8 +12,8 @@ class ArvoreDecisao:
 
         #caso a raiz seja sim
 
-        raiz.yes.yes = Node(pergunta = 'Golfinho')
-        raiz.yes.no = Node(pergunta = 'Tubarão')
+        raiz.yes.yes = Node(resposta = 'Golfinho')
+        raiz.yes.no = Node(resposta = 'Tubarão')
 
         #caso a raiz seja não
 
