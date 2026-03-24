@@ -23,6 +23,10 @@ class Akinator:
         caminho = []
 
         while True:
+            if no is None:
+                print("Erro: caminho inválido na árvore.")
+                return
+
             if no.resposta:
                 print(f"\nVocê pensou em: {no.resposta}?")
 
@@ -33,15 +37,29 @@ class Akinator:
                     print("Acertei.")
                 return
 
+            if no.pergunta is None:
+                print("Erro: nó inválido.")
+                return
+
             resposta = self.perguntar(no.pergunta)
             caminho.append((no, resposta))
 
             if resposta:
+                if no.yes is None:
+                    print("Erro: caminho inexistente.")
+                    return
                 no = no.yes
             else:
+                if no.no is None:
+                    print("Erro: caminho inexistente.")
+                    return
                 no = no.no
 
     def aprender(self, no_errado, caminho):
+        if no_errado is None or no_errado.resposta is None:
+            print("Erro ao aprender.")
+            return
+
         print("\nNão sei então. Me ensine.")
 
         novo = input("Qual era o correto? ").strip()
@@ -59,6 +77,9 @@ class Akinator:
 
         if caminho:
             pai, resp = caminho[-1]
+            if pai is None:
+                print("Erro ao atualizar árvore.")
+                return
             if resp:
                 pai.yes = nova_pergunta
             else:
@@ -69,11 +90,19 @@ class Akinator:
         print("Aprendi algo novo.")
 
     def mostrar_bfs(self):
+        if self.raiz is None:
+            print("Árvore vazia.")
+            return
+
         print("\n--- BFS (ordem de visita) ---")
         ordem = bfs(self.raiz)
         for i, item in enumerate(ordem, 1):
             print(f"{i}. {item}")
 
     def mostrar_dfs(self):
+        if self.raiz is None:
+            print("Árvore vazia.")
+            return
+
         print("\n--- DFS (ordem de visita) ---")
         dfs(self.raiz)
